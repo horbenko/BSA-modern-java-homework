@@ -1,5 +1,7 @@
 package com.binary_studio.uniq_in_sorted_stream;
 
+import com.binary_studio.uniq_in_sorted_stream.utils.RowPredicate;
+
 import java.util.stream.Stream;
 
 public final class UniqueSortedStream {
@@ -8,8 +10,8 @@ public final class UniqueSortedStream {
 	}
 
 	public static <T> Stream<Row<T>> uniqueRowsSortedByPK(Stream<Row<T>> stream) {
-		// TODO: Ваш код тут. Помните про терминальные операции! :)
-		return null;
-	}
+		final RowPredicate predicate = new RowPredicate();
 
+		return stream.filter(predicate);
+	}
 }
